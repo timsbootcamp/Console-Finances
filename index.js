@@ -109,25 +109,36 @@ var dateGreatestDecreaseProfits=Number.MAX_VALUE;
 // Initialise Variables - END
 
 
+// Parse multi-dimensional array, 'finances' - BEGIN
 for (let monthNo=0; monthNo<finances.length; monthNo++) 
 {
 
+  // Calculate the total number of months included in the dataset
   totalNoMonths = totalNoMonths + 1; 
 
+  // Calculate the net total amount of Profit/Losses over the entire period
   totalNetProfit = totalNetProfit + finances[monthNo][arrIndexProfit];
 
 
   if (monthNo >= 1)
   {
+    // Monthly Profit Difference is calculated by 
+    // subtracting previous month's profit from current month's profit 
     monthProfitDiffer = finances[monthNo][arrIndexProfit] - finances[monthNo-1][arrIndexProfit];
+
+    // Total all Month profit differences
     totalMonthProfitDiffer = totalMonthProfitDiffer + monthProfitDiffer;
     
+    // If current months profit difference is greater than greatestIncreaseProfits then
+    // update variables : 'dateGreatestIncreaseProfits' and 'greatestIncreaseProfits'
     if (monthProfitDiffer > greatestIncreaseProfits)
     {
       dateGreatestIncreaseProfits = finances[monthNo][arrIndexDate];
       greatestIncreaseProfits = monthProfitDiffer;
     }
 
+    // If current months profit difference is less than greatestDecreaseProfits then
+    // update variables : 'dateGreatestDecreaseProfits' and 'greatestDecreaseProfits'    
     if (monthProfitDiffer < greatestDecreaseProfits)
     {
       dateGreatestDecreaseProfits = finances[monthNo][arrIndexDate];
@@ -137,9 +148,14 @@ for (let monthNo=0; monthNo<finances.length; monthNo++)
   } 
 
 }
+// Parse multi-dimensional array, 'finances' - END
 
+
+// Calculate the average of the changes in Profit/Losses over the entire period
 avgChangeProfitLoss = totalMonthProfitDiffer / (totalNoMonths - 1) 
 
+
+// Print Analysis to the Console - BEGIN
 console.log("Financial Analysis");
 console.log("----------------");
 console.log("Total Months: " + totalNoMonths);
@@ -147,3 +163,5 @@ console.log("Total: " + currencySymbol + totalNetProfit);
 console.log("Average Change: " + avgChangeProfitLoss.toFixed(2));
 console.log("Greatest Increase in Profits/Losses: " + dateGreatestIncreaseProfits + " (" + currencySymbol + greatestIncreaseProfits + ")" ) ;
 console.log("Greatest Decrease in Profits/Losses: " + dateGreatestDecreaseProfits + " (" + currencySymbol + greatestDecreaseProfits + ")" ) ;
+// Print Analysis to the Console - END
+
