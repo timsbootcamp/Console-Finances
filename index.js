@@ -140,6 +140,8 @@ for (let monthNo=0; monthNo<finances.length; monthNo++)
 
 avgChangeProfitLoss = totalMonthProfitDiffer / (totalNoMonths - 1) 
 
+console.log("Financial Analysis");
+console.log("----------------");
 console.log("Total Months: " + totalNoMonths);
 console.log("Total: " + currencySymbol + totalNetProfit);
 console.log("Average Change: " + avgChangeProfitLoss.toFixed(2));
