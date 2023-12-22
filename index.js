@@ -97,6 +97,9 @@ const currencySymbol = "$";
 // Initialise Variables - BEGIN
 var totalNoMonths=0;
 var totalNetProfit=0;
+
+var monthProfitDiffer=0;
+var totalMonthProfitDiffer=0;
 // Initialise Variables - END
 
 
@@ -107,7 +110,18 @@ for (let monthNo=0; monthNo<finances.length; monthNo++)
 
   totalNetProfit = totalNetProfit + finances[monthNo][arrIndexProfit];
 
+
+  if (monthNo >= 1)
+  {
+
+    monthProfitDiffer = finances[monthNo][arrIndexProfit] - finances[monthNo-1][arrIndexProfit];
+    totalMonthProfitDiffer = totalMonthProfitDiffer + monthProfitDiffer;
+  } 
+
 }
+
+avgChangeProfitLoss = totalMonthProfitDiffer / (totalNoMonths - 1) 
 
 console.log("Total Months: " + totalNoMonths);
 console.log("Total: " + currencySymbol + totalNetProfit);
+console.log("Average Change: " + avgChangeProfitLoss.toFixed(2));
