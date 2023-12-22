@@ -4,7 +4,7 @@ Challenge 4 of edX Boot Camp (Front End) to create Javascript code for analyzing
 ## Description
 
 For Weekly Challenge 4 of the edX Bootcamp Front End Course, I was given 
-a task of Javascript code for analyzing the financial records of a company. 
+a task of writing Javascript code for analyzing the financial records of a company. 
 The Financial dataset was provided in the 'starter/index.js'.
 
 
