@@ -100,6 +100,10 @@ var totalNetProfit=0;
 
 var monthProfitDiffer=0;
 var totalMonthProfitDiffer=0;
+
+var greatestIncreaseProfits=0;
+var dateGreatestIncreaseProfits="";
+
 // Initialise Variables - END
 
 
@@ -113,9 +117,14 @@ for (let monthNo=0; monthNo<finances.length; monthNo++)
 
   if (monthNo >= 1)
   {
-
     monthProfitDiffer = finances[monthNo][arrIndexProfit] - finances[monthNo-1][arrIndexProfit];
     totalMonthProfitDiffer = totalMonthProfitDiffer + monthProfitDiffer;
+    
+    if (monthProfitDiffer > greatestIncreaseProfits)
+    {
+      dateGreatestIncreaseProfits = finances[monthNo][arrIndexDate];
+      greatestIncreaseProfits = monthProfitDiffer;
+    }
   } 
 
 }
@@ -125,3 +134,4 @@ avgChangeProfitLoss = totalMonthProfitDiffer / (totalNoMonths - 1)
 console.log("Total Months: " + totalNoMonths);
 console.log("Total: " + currencySymbol + totalNetProfit);
 console.log("Average Change: " + avgChangeProfitLoss.toFixed(2));
+console.log("Greatest Increase in Profits/Losses: " + dateGreatestIncreaseProfits + " (" + currencySymbol + greatestIncreaseProfits + ")" ) ;
