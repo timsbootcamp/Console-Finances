@@ -86,3 +86,15 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+var totalNoMonths=0;
+
+
+for (let monthNo=0; monthNo<finances.length; monthNo++) 
+{
+
+  totalNoMonths = totalNoMonths + 1; 
+}
+
+console.log("Total Months: " + totalNoMonths);
