@@ -87,14 +87,27 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+// Define Constant - BEGIN
+const arrIndexDate = 0;
+const arrIndexProfit = 1;
+const currencySymbol = "$";
+// Define Constant - END
 
+
+// Initialise Variables - BEGIN
 var totalNoMonths=0;
+var totalNetProfit=0;
+// Initialise Variables - END
 
 
 for (let monthNo=0; monthNo<finances.length; monthNo++) 
 {
 
   totalNoMonths = totalNoMonths + 1; 
+
+  totalNetProfit = totalNetProfit + finances[monthNo][arrIndexProfit];
+
 }
 
 console.log("Total Months: " + totalNoMonths);
+console.log("Total: " + currencySymbol + totalNetProfit);
